@@ -31,4 +31,12 @@ public abstract class Room {
     public void removeOccupant(Guest guest){
         this.occupants.remove(guest);
     }
+
+    public String getNamesOfOccupants(){
+        String guestName = "";
+        for (int index = 0; index < getNumberOfOccupants(); index++){
+            guestName += this.occupants.get(index).getName() + ". ";
+        }
+        return guestName;
+    }
 }
