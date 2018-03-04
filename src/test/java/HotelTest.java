@@ -111,13 +111,12 @@ public class HotelTest {
         assertEquals("Third Guest. Fourth Guest. ", hotel.getNamesOfBedroomOccupants("Bedroom Two"));
     }
 
-//
-//    @Test
-//    public void canRemoveOccupant(){
-//        guest = new Guest("Bedroom Remove");
-//        bedroom.addOccupant(guest);
-//        bedroom.removeOccupant(guest);
-//        assertEquals(0, bedroom.getNumberOfOccupants());
-//    }
+    @Test
+    public void canCheckOutGuestFromBedroom(){
+        hotel.checkInToDoubleOrTwinRoom("Double", "First Guest", "Second Guest");
+        assertEquals("Bedroom Two. Bedroom Three. Bedroom Four. Bedroom Five. ", hotel.findAllUnOccupiedBedrooms());
+        hotel.checkOutGuestFromBedroom("Bedroom One");
+        assertEquals("Bedroom One. Bedroom Two. Bedroom Three. Bedroom Four. Bedroom Five. ", hotel.findAllUnOccupiedBedrooms());
+    }
 
 }

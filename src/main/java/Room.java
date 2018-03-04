@@ -39,4 +39,8 @@ public abstract class Room {
         }
         return guestName;
     }
+
+    public void checkOutOccupants() {
+        this.occupants.clear();
+    }
 }

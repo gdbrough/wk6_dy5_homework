@@ -103,6 +103,14 @@ public class Hotel {
         return occupants;
     }
 
+    public void checkOutGuestFromBedroom(String roomName){
+        for (int index = 0; index < getNumberOfBedrooms(); index++){
+            if (bedrooms.get(index).getRoomName() == roomName) {
+                bedrooms.get(index).checkOutOccupants();
+            }
+        }
+    }
+
     public int getNumberOfConferenceRooms(){
         return this.conferenceRooms.size();
     }
