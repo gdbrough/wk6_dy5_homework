@@ -7,8 +7,8 @@ import static org.junit.Assert.assertEquals;
 
 public class DiningRoomTest {
 
-    DiningRoom diningRoom;
-    Guest guest;
+    private DiningRoom diningRoom;
+    private Guest guest;
 
     @Before
     public void before(){

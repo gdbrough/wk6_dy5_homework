@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class ConferenceRoom extends Room {
 
-    private String equipment;
     private ConferenceRoomType conferenceRoomType;
 
     public ConferenceRoom(String roomName, int capacity, ArrayList<Guest> occupants, ConferenceRoomType conferenceRoomType) {

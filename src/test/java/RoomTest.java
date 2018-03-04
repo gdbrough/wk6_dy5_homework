@@ -1,12 +1,12 @@
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.ArrayList;
-
-import static org.junit.Assert.assertEquals;
-
-public class RoomTest {
-
+//import org.junit.Before;
+//import org.junit.Test;
+//
+//import java.util.ArrayList;
+//
+//import static org.junit.Assert.assertEquals;
+//
+//public class RoomTest {
+//
 //    Room room;
 //    Guest guest;
 //
@@ -45,5 +45,5 @@ public class RoomTest {
 //        assertEquals(0, room.getNumberOfOccupants());
 //
 //    }
-
-}
+//
+//}

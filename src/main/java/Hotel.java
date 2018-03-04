@@ -5,17 +5,12 @@ public class Hotel {
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<ConferenceRoom> conferenceRooms;
     private DiningRoom diningRoom;
-    private Bedroom bedroom;
     private Guest guest;
-    private BedroomType bedroomType;
 
     public Hotel(DiningRoom diningRoom) {
         this.bedrooms = new ArrayList<>();
         this.conferenceRooms = new ArrayList<>();
         this.diningRoom = diningRoom;
-//        this.bedroomType = bedroomType;
-        this.bedroom = bedroom;
-        this.guest = guest;
     }
 
     public int getNumberOfBedrooms(){
@@ -29,10 +24,6 @@ public class Hotel {
     public String findAllUnOccupiedBedrooms(){
         String emptyRooms = "";
         for(Bedroom bedroom : this.bedrooms){
-//            System.out.println("Room Name: " + bedroom.getRoomName());
-//            System.out.println("Room Type: " + bedroom.getBedroomType());
-//            System.out.println("Capacity: " + bedroom.getBedroomCapacity());
-//            System.out.println("Guests: " + bedroom.getNumberOfOccupants());
             if (bedroom.getNumberOfOccupants() == 0) {
                 emptyRooms += (bedroom.getRoomName() + ". ");
             }
