@@ -20,11 +20,11 @@ public class HotelTest {
         bedrooms = new ArrayList<>();
         diningRoom = new DiningRoom("Dining Room", 200, new ArrayList<>());
         hotel = new Hotel(diningRoom);
-        hotel.addBedroom(new Bedroom("Bedroom One", 2, new ArrayList<>(), BedroomType.DOUBLE));
-        hotel.addBedroom(new Bedroom("Bedroom Two", 2, new ArrayList<>(), BedroomType.DOUBLE));
-        hotel.addBedroom(new Bedroom("Bedroom Three", 2, new ArrayList<>(), BedroomType.TWIN));
-        hotel.addBedroom(new Bedroom("Bedroom Four", 1, new ArrayList<>(), BedroomType.SINGLE));
-        hotel.addBedroom(new Bedroom("Bedroom Five", 4, new ArrayList<>(), BedroomType.FAMILY));
+        hotel.addBedroom(new Bedroom("Bedroom One", 2, new ArrayList<>(), BedroomType.DOUBLE, 2));
+        hotel.addBedroom(new Bedroom("Bedroom Two", 2, new ArrayList<>(), BedroomType.DOUBLE, 1));
+        hotel.addBedroom(new Bedroom("Bedroom Three", 2, new ArrayList<>(), BedroomType.TWIN, 1));
+        hotel.addBedroom(new Bedroom("Bedroom Four", 1, new ArrayList<>(), BedroomType.SINGLE, 5));
+        hotel.addBedroom(new Bedroom("Bedroom Five", 4, new ArrayList<>(), BedroomType.FAMILY, 5));
         hotel.addConferenceRoom(new ConferenceRoom("Conference Room One", 20, new ArrayList<>(), ConferenceRoomType.SMALL));
         hotel.addConferenceRoom(new ConferenceRoom("Conference Room Two", 50, new ArrayList<>(), ConferenceRoomType.MEDIUM));
         hotel.addConferenceRoom(new ConferenceRoom("Conference Room Three", 100, new ArrayList<>(), ConferenceRoomType.LARGE));
@@ -67,7 +67,7 @@ public class HotelTest {
 
     @Test
     public void canCheckGuestInToSingleRoom__Vacancy(){
-        assertEquals("Single Guest checked in to Bedroom Four.", hotel.checkInToSingleRoom("Single Guest"));
+        assertEquals("Single Guest checked in to Bedroom Four at £44.99 per night for 5 nights. Total cost: £224.95", hotel.checkInToSingleRoom("Single Guest"));
     }
 
     @Test

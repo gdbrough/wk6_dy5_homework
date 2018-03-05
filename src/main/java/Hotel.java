@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+//import static jdk.nashorn.internal.objects.NativeMath.round;
+
 public class Hotel {
 
     private ArrayList<Bedroom> bedrooms;
@@ -47,7 +49,8 @@ public class Hotel {
         int availableRoom = findFirstUnOccupiedBedroom("Single");
         if ((availableRoom + 1) > 0) {
             bedrooms.get(availableRoom).addOccupant(guest);
-            return guest.getName() + " checked in to " + bedrooms.get(availableRoom).getRoomName() + ".";
+            return String.format("%s checked in to %s at £%.2f per night for %d nights. Total cost: £%.2f", guest.getName(), bedrooms.get(availableRoom).getRoomName(), bedrooms.get(availableRoom).getBedroomNightlyRate(), bedrooms.get(availableRoom).getNights(), bedrooms.get(availableRoom).getTotalCost());
+
         } else {
             return guest.getName() + " not checked in. No room available.";
         }

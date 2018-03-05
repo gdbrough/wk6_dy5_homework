@@ -12,7 +12,7 @@ public class BedroomTest {
 
     @Before
     public void before(){
-        bedroom = new Bedroom("Bedroom One", 2, new ArrayList<>(), BedroomType.DOUBLE);
+        bedroom = new Bedroom("Bedroom One", 2, new ArrayList<>(), BedroomType.DOUBLE, 3);
     }
 
     @Test
@@ -28,6 +28,16 @@ public class BedroomTest {
     @Test
     public void canGetBedroomCapacity(){
         assertEquals(2, bedroom.getBedroomCapacity());
+    }
+
+    @Test
+    public void canGetNights(){
+        assertEquals(3, bedroom.getNights());
+    }
+
+    @Test
+    public void canGetTotalCost(){
+        assertEquals(239.97, bedroom.getTotalCost(), 0.01);
     }
 
     @Test
