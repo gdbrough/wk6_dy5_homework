@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-//import static jdk.nashorn.internal.objects.NativeMath.round;
-
 public class Hotel {
 
     private ArrayList<Bedroom> bedrooms;
@@ -44,19 +42,20 @@ public class Hotel {
         return emptyRoomIndex;
     }
 
-    public String checkInToSingleRoom(String guestName){
+    public String checkInToSingleRoom(int nights, String guestName){
         guest = new Guest(guestName);
         int availableRoom = findFirstUnOccupiedBedroom("Single");
         if ((availableRoom + 1) > 0) {
             bedrooms.get(availableRoom).addOccupant(guest);
-            return String.format("%s checked in to %s at £%.2f per night for %d nights. Total cost: £%.2f", guest.getName(), bedrooms.get(availableRoom).getRoomName(), bedrooms.get(availableRoom).getBedroomNightlyRate(), bedrooms.get(availableRoom).getNights(), bedrooms.get(availableRoom).getTotalCost());
-
+            double totalCost = bedrooms.get(availableRoom).getBedroomNightlyRate() * nights;
+//            return String.format("%s checked in to %s at £%.2f per night for %d nights. Total cost: £%.2f", guest.getName(), bedrooms.get(availableRoom).getRoomName(), bedrooms.get(availableRoom).getBedroomNightlyRate(), bedrooms.get(availableRoom).getNights(), bedrooms.get(availableRoom).getTotalCost());
+            return guest.getName() + " checked in to " + bedrooms.get(availableRoom).getRoomName() + " at £" + bedrooms.get(availableRoom).getBedroomNightlyRate() + " per night for " + nights + " nights. Total cost: £" + Math.round(totalCost *100) / 100.0;
         } else {
             return guest.getName() + " not checked in. No room available.";
         }
     }
 
-    public String checkInToDoubleOrTwinRoom(String roomType, String guestNameOne, String guestNameTwo){
+    public String checkInToDoubleOrTwinRoom(String roomType, int nights, String guestNameOne, String guestNameTwo){
         guest = new Guest(guestNameOne);
         Guest guest2 = new Guest(guestNameTwo);
         int availableRoom = findFirstUnOccupiedBedroom(roomType);
@@ -69,7 +68,7 @@ public class Hotel {
         }
     }
 
-    public String checkInToFamilyRoom(String guestNameOne, String guestNameTwo, String guestNameThree, String guestNameFour){
+    public String checkInToFamilyRoom(int nights, String guestNameOne, String guestNameTwo, String guestNameThree, String guestNameFour){
         guest = new Guest(guestNameOne);
         Guest guest2 = new Guest(guestNameTwo);
         Guest guest3 = new Guest(guestNameThree);
